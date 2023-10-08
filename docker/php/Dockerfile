@@ -8,10 +8,12 @@ RUN apt-get update \
     && docker-php-ext-install zip pdo_mysql \
     && pecl install xdebug
 
+#無理矢理rootユーザーで実行
 RUN useradd -ms /bin/bash jill \
-    && echo "jill:re3" | chpasswd
+    && echo "jill:re3" | chpasswd\
+    && chown -R jill:jill /var/www  # この行を追加
     
-USER jill
+USER root
 
 # マルチステージビルドでcomposer
 COPY --from=composer:2.1 /usr/bin/composer /usr/bin/composer
