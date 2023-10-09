@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +21,26 @@ Route::get("/books", function () {
     return ["book1", "book2", "book3"];
 });
 
-Route::get('/test', [TestController::class, 'index']);
+//Route::post('/create', [BlogPostController::class, 'create']);
+
+Route::prefix('posts')->middleware(['middleware' => 'api'])->group(function () {
+    # 投稿作成
+    Route::post('/create', [PostController::class, 'create']);
+    # 投稿一覧表示
+    Route::get('/', [PostController::class, 'index']);
+    # 投稿表示
+    Route::get('/{id}', [PostController::class, 'show']);
+    # 投稿編集
+    Route::patch('/update/{id}' , [PostController::class, 'update']);
+    # 投稿削除
+    Route::delete('/{id}', [PostController::class, 'delete']);
+});
+
+//Route::get('/test', [TestController::class, 'index']);
+// Route::post("/create", function(){
+//     $post = new AppPost();
+//     $post->title = request()->get("title");
+//     $post->content = request()->get("content");
+//     $post->save();
+//     return [];
+//    });
