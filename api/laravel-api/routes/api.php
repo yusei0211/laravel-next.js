@@ -21,7 +21,6 @@ Route::get("/books", function () {
     return ["book1", "book2", "book3"];
 });
 
-<<<<<<< HEAD
 //Route::post('/create', [BlogPostController::class, 'create']);
 
 Route::prefix('posts')->middleware(['middleware' => 'api'])->group(function () {
@@ -36,15 +35,3 @@ Route::prefix('posts')->middleware(['middleware' => 'api'])->group(function () {
     # 投稿削除
     Route::delete('/{id}', [PostController::class, 'delete']);
 });
-
-//Route::get('/test', [TestController::class, 'index']);
-// Route::post("/create", function(){
-//     $post = new AppPost();
-//     $post->title = request()->get("title");
-//     $post->content = request()->get("content");
-//     $post->save();
-//     return [];
-//    });
-=======
-Route::get('/test', [TestController::class, 'index']);
->>>>>>> e0825bbcf7b98467f57ea489a8b18b7e5a7f072c
