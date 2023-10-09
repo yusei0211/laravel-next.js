@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\PostController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +21,7 @@ Route::get("/books", function () {
     return ["book1", "book2", "book3"];
 });
 
+<<<<<<< HEAD
 //Route::post('/create', [BlogPostController::class, 'create']);
 
 Route::prefix('posts')->middleware(['middleware' => 'api'])->group(function () {
@@ -44,3 +45,6 @@ Route::prefix('posts')->middleware(['middleware' => 'api'])->group(function () {
 //     $post->save();
 //     return [];
 //    });
+=======
+Route::get('/test', [TestController::class, 'index']);
+>>>>>>> e0825bbcf7b98467f57ea489a8b18b7e5a7f072c
