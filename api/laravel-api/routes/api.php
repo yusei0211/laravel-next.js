@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 Route::get("/books", function () {
     return ["book1", "book2", "book3"];
 });
+
+Route::get('/test', [TestController::class, 'index']);
